@@ -17,8 +17,6 @@ import edu.wpi.first.wpilibj.DoubleSolenoid;
  * Add your docs here.
  */
 public class Intake extends Subsystem {
-  // Put methods for controlling this subsystem
-  // here. Call these from Commands.
   private Spark intakeMotor = new Spark(RobotMap.PORT_INTAKE);
   private double speedMultiplier = 1;
 
@@ -39,4 +37,8 @@ public class Intake extends Subsystem {
   public void setSolenoid(DoubleSolenoid.Value value) {
     intakeSolenoid.set(value);
   }
+
+  /*public boolean hasHatch() {
+    return intakeSolenoid.get() == UP;
+  }*/
 }

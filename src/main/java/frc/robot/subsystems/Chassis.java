@@ -9,6 +9,7 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.Spark;
+import frc.robot.Constants;
 import frc.robot.RobotMap;
 import frc.robot.commands.DriveCommand;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
@@ -35,11 +36,9 @@ public class Chassis extends Subsystem {
     encLeft = new Encoder(RobotMap.PORT_ENCODER_DRIVE_LEFT, RobotMap.PORT_ENCODER_DRIVE_LEFT+1, false, Encoder.EncodingType.k4X);
     encRight = new Encoder(RobotMap.PORT_ENCODER_DRIVE_RIGHT, RobotMap.PORT_ENCODER_DRIVE_RIGHT+1, false, Encoder.EncodingType.k4X);
 
-    double gearRatio = 1; //Drive gearbox ratio
-    double wheelCircumference = 0.1524 * Math.PI; //Wheel circumference in meters (6 inches * pi)
-    int pulsesPerRevolution = 1024; //One rotation of encoder gives 1024 pulses
+    double wheelCircumference = Constants.WHEEL_DIAMETER * Math.PI; //Wheel circumference in meters 
+    double distancePerPulse = (Constants.DRIVE_GEARBOX_RATIO * wheelCircumference) / Constants.PULSES_PER_REVOLUTION;
 
-    double distancePerPulse = (gearRatio * wheelCircumference)/pulsesPerRevolution;
     encLeft.setDistancePerPulse(distancePerPulse);
     encRight.setDistancePerPulse(distancePerPulse);
   }
@@ -47,7 +46,7 @@ public class Chassis extends Subsystem {
     setDefaultCommand(new DriveCommand());
   }
 
-  private double P = 1, I = 1, D = 1;
+  private double P = 1;//, I = 1, D = 1;
   int countDifference= 0; //Impose an artificial difference in counts to cause turn
   double PID() {
     int leftCount = encLeft.get() - countDifference; 
