@@ -34,4 +34,9 @@ public class RobotMap {
 
   public static final int PORT_COMPRESSOR = 0;
 
+  //Encoder ports
+  //Each encoder uses assigned port and the port above it
+  public static final int PORT_ENCODER_DRIVE_LEFT = 0;
+  public static final int PORT_ENCODER_DRIVE_RIGHT = 2;
+  public static final int PORT_ENCODER_DRIVE_LIFT = 2;
 }
