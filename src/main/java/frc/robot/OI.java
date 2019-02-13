@@ -11,31 +11,36 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.BallIntakeCommand;
 import frc.robot.commands.LiftIntakeCommand;
+import frc.robot.commands.HatchIntakeCommand;
 import frc.robot.subsystems.Intake;
+
 public class OI {
   public XboxController xbox = new XboxController(1);
   
-  Button a = new JoystickButton(xbox, 1);
-	Button b = new JoystickButton(xbox, 2);
-	Button x = new JoystickButton(xbox, 3);
-  Button y = new JoystickButton(xbox, 4);
+  public Button a = new JoystickButton(xbox, 1);
+	public Button b = new JoystickButton(xbox, 2);
+	public Button x = new JoystickButton(xbox, 3);
+  public Button y = new JoystickButton(xbox, 4);
   
-  Button lt = new JoystickButton(xbox, 5);
-  Button rt = new JoystickButton(xbox, 6);
+  public  Button lt = new JoystickButton(xbox, 5);
+  public Button rt = new JoystickButton(xbox, 6);
 
-	Button select = new JoystickButton(xbox, 7);
-  Button start = new JoystickButton(xbox, 8);
+	public Button select = new JoystickButton(xbox, 7);
+  public Button start = new JoystickButton(xbox, 8);
   
-  Button leftPress = new JoystickButton(xbox, 9);
-  Button rightPress = new JoystickButton(xbox, 10);
-  
-	
+  public Button leftPress = new JoystickButton(xbox, 9);
+  public Button rightPress = new JoystickButton(xbox, 10);
   
   public OI() {
     rt.whenPressed(new BallIntakeCommand(1));
     lt.whenPressed(new BallIntakeCommand(-1));
-    a.whenPressed(new LiftIntakeCommand(Intake.UP));
-    b.whenPressed(new LiftIntakeCommand(Intake.DOWN));
+    a.whenPressed(new BallIntakeCommand(1));
+    b.whenPressed(new BallIntakeCommand(-1));
+    x.whenPressed(new HatchIntakeCommand(Intake.EXTENDED));
+    y.whenPressed(new HatchIntakeCommand(Intake.RETRACTED));
+    start.whenPressed(new LiftIntakeCommand()); //Toggle intake up/down 
+    select.whenPressed(new LiftIntakeCommand(Intake.RETRACTED)); 
+
     // button.whileHeld(new ExampleCommand());
     // button.whenReleased(new ExampleCommand());
     // button.toggleWhenActive(new ExampleCommand());

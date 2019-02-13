@@ -29,6 +29,7 @@ public class Robot extends TimedRobot {
   public void robotInit() {
     intake = new Intake();
     chassis = new Chassis();
+    lift = new Lift();
 
     m_oi = new OI();
     //m_chooser.setDefaultOption("Default Auto", new ExampleCommand());

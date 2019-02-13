@@ -8,24 +8,25 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
-import edu.wpi.first.wpilibj.DoubleSolenoid;
 import frc.robot.Robot;
+import edu.wpi.first.wpilibj.DoubleSolenoid;
 
-public class LiftIntakeCommand extends Command {
+public class HatchIntakeCommand extends Command {
   DoubleSolenoid.Value value;
-  public LiftIntakeCommand(DoubleSolenoid.Value value) {
+  public HatchIntakeCommand(DoubleSolenoid.Value value) {
     requires(Robot.intake);
     this.value = value;
   }
-  public LiftIntakeCommand() {
+
+  public HatchIntakeCommand() {
     requires(Robot.intake);
   }
 
   protected void execute() {
     if (value != null) {
-      Robot.intake.setIntakeSolenoid(value);
+      Robot.intake.setHatchSolenoid(value);
     } else {
-      Robot.intake.toggleIntakeSolenoid();
+      Robot.intake.toggleHatchSolenoid();
     }
   }
 
