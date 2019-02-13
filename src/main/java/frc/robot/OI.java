@@ -11,6 +11,7 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.commands.BallIntakeCommand;
 import frc.robot.commands.LiftIntakeCommand;
+import frc.robot.commands.LiftToStageCommand;
 import frc.robot.commands.HatchIntakeCommand;
 import frc.robot.subsystems.Intake;
 
@@ -32,8 +33,8 @@ public class OI {
   public Button rightPress = new JoystickButton(xbox, 10);
   
   public OI() {
-    rt.whenPressed(new BallIntakeCommand(1));
-    lt.whenPressed(new BallIntakeCommand(-1));
+    rt.whenPressed(new LiftToStageCommand(1));
+    lt.whenPressed(new LiftToStageCommand(-1));
     a.whenPressed(new BallIntakeCommand(1));
     b.whenPressed(new BallIntakeCommand(-1));
     x.whenPressed(new HatchIntakeCommand(Intake.EXTENDED));

@@ -15,9 +15,7 @@ import frc.robot.commands.DriveCommand;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.Encoder;
-/**
- * Add your docs here.
- */
+
 public class Chassis extends Subsystem {
   private Spark lfMotor = new Spark(RobotMap.PORT_DRIVE_LEFT_FRONT);
 	private Spark lbMotor = new Spark(RobotMap.PORT_DRIVE_LEFT_BACK);
@@ -36,7 +34,7 @@ public class Chassis extends Subsystem {
     encLeft = new Encoder(RobotMap.PORT_ENCODER_DRIVE_LEFT, RobotMap.PORT_ENCODER_DRIVE_LEFT+1, false, Encoder.EncodingType.k4X);
     encRight = new Encoder(RobotMap.PORT_ENCODER_DRIVE_RIGHT, RobotMap.PORT_ENCODER_DRIVE_RIGHT+1, false, Encoder.EncodingType.k4X);
 
-    double wheelCircumference = Constants.WHEEL_DIAMETER * Math.PI; //Wheel circumference in meters 
+    double wheelCircumference = Constants.DRIVE_WHEEL_DIAMETER * Math.PI; //Wheel circumference in meters 
     double distancePerPulse = (Constants.DRIVE_GEARBOX_RATIO * wheelCircumference) / Constants.PULSES_PER_REVOLUTION;
 
     encLeft.setDistancePerPulse(distancePerPulse);

@@ -61,5 +61,9 @@ public class Intake extends Subsystem {
     return hatchSolenoid.get() == EXTENDED;
   }
 
+  public boolean isExtended() {
+    return intakeSolenoid.get() == EXTENDED;
+  }
+
 
 }

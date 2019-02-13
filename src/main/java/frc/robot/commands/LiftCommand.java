@@ -10,6 +10,7 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 import edu.wpi.first.wpilibj.GenericHID.Hand;
+
 public class LiftCommand extends Command {
   public LiftCommand() {
     requires(Robot.lift);

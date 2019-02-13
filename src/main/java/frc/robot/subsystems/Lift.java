@@ -14,7 +14,11 @@ import frc.robot.RobotMap;
 import frc.robot.commands.LiftCommand;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.Encoder;
+
+
 import edu.wpi.first.wpilibj.DigitalInput;
+import frc.robot.Constants;
+import frc.robot.Robot;
 
 public class Lift extends Subsystem {
   
@@ -25,10 +29,38 @@ public class Lift extends Subsystem {
   public Encoder encLift;
 
   private DigitalInput liftSwitch;
+
+
   public Lift() {
     encLift = new Encoder(RobotMap.PORT_ENCODER_DRIVE_LIFT, RobotMap.PORT_ENCODER_DRIVE_LIFT+1, false, Encoder.EncodingType.k4X);
     liftSwitch = new DigitalInput(RobotMap.PORT_LIFT_SWITCH);
+    
+    double distancePerPulse = (Constants.LIFT_GEARBOX_RATIO * Constants.LIFT_DISTANCE_RATIO) / Constants.PULSES_PER_REVOLUTION;
+    encLift.setDistancePerPulse(distancePerPulse);
   } 
+
+  public int getCurrentStage(boolean roundUp) {
+    double[] heights;
+    if(Robot.intake.hasHatch()) 
+      heights = Constants.HATCH_HEIGHTS;
+    else 
+      heights = Constants.BALL_HEIGHTS;
+    
+    //stage -1 is the floor
+    int stage = -1;
+    double height = encLift.getDistance();
+    for(int i = 0; i < heights.length;i++) {
+        if(height > heights[i]) {
+          stage = i;
+          break;
+        }
+    }
+
+    if(roundUp)
+      stage++;
+    return stage;
+    
+  }
 
   public boolean zero() {
     controllers.set(-1);
