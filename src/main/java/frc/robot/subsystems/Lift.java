@@ -26,20 +26,20 @@ public class Lift extends Subsystem {
   private Spark bMotor = new Spark(RobotMap.PORT_LIFT_BACK);
   private SpeedControllerGroup controllers = new SpeedControllerGroup(fMotor, bMotor);
 
-  public Encoder encLift;
+  //public Encoder encLift;
 
-  private DigitalInput liftSwitch;
+  //private DigitalInput liftSwitch;
 
 
   public Lift() {
-    encLift = new Encoder(RobotMap.PORT_ENCODER_DRIVE_LIFT, RobotMap.PORT_ENCODER_DRIVE_LIFT+1, false, Encoder.EncodingType.k4X);
-    liftSwitch = new DigitalInput(RobotMap.PORT_LIFT_SWITCH);
+    //encLift = new Encoder(RobotMap.PORT_ENCODER_DRIVE_LIFT, RobotMap.PORT_ENCODER_DRIVE_LIFT+1, false, Encoder.EncodingType.k4X);
+   // liftSwitch = new DigitalInput(RobotMap.PORT_LIFT_SWITCH);
     
-    double distancePerPulse = (Constants.LIFT_GEARBOX_RATIO * Constants.LIFT_DISTANCE_RATIO) / Constants.PULSES_PER_REVOLUTION;
-    encLift.setDistancePerPulse(distancePerPulse);
+    //double distancePerPulse = (Constants.LIFT_GEARBOX_RATIO * Constants.LIFT_DISTANCE_RATIO) / Constants.PULSES_PER_REVOLUTION;
+   // encLift.setDistancePerPulse(distancePerPulse);
   } 
 
-  public int getCurrentStage(boolean roundUp) {
+ /* public int getCurrentStage(boolean roundUp) {
     double[] heights;
     if(Robot.intake.hasHatch()) 
       heights = Constants.HATCH_HEIGHTS;
@@ -70,7 +70,7 @@ public class Lift extends Subsystem {
       return true;
     }
     return false;
-  }
+  }*/
 
  public void initDefaultCommand() {
     setDefaultCommand(new LiftCommand());

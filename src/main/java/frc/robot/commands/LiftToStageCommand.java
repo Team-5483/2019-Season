@@ -17,7 +17,7 @@ public class LiftToStageCommand extends Command {
     requires(Robot.lift);
 
     //If were going up, round stage down. going down round stage up
-    int stage = Robot.lift.getCurrentStage(direction < 0);
+    /*int stage = Robot.lift.getCurrentStage(direction < 0);
     //int direction = up ? 1 : -1; 
     double[] heights;
     if(Robot.intake.hasHatch()) 
@@ -25,7 +25,7 @@ public class LiftToStageCommand extends Command {
     else 
       heights = Constants.BALL_HEIGHTS;
 
-    desiredHeight = heights[stage + direction];
+    desiredHeight = heights[stage + direction];*/
   }
 
   protected void initialize() {
@@ -34,16 +34,16 @@ public class LiftToStageCommand extends Command {
   double integral = 0;
   double lastError = 0;
   double P = 1, I = 1, D = 1;
-  double PID() {
+  /*double PID() {
     double error = desiredHeight - Robot.lift.encLift.getDistance();
     this.integral += error * .02; // Integral is increased by the error*time (which is .02 seconds using normal IterativeRobot)
     double derivative = (error - this.lastError) / .02;
     this.lastError = error;
     return  (P * error) + (I * this.integral) + (D * derivative);
-  }
+}*/
 
   protected void execute() {
-    Robot.lift.lift(PID());
+    //Robot.lift.lift(PID());
   }
 
   
