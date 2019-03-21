@@ -9,22 +9,22 @@ package frc.robot;
 
 public class RobotMap {
   //PWM ports
-  public static final int PORT_DRIVE_LEFT_BACK = 1;
-  public static final int PORT_DRIVE_RIGHT_BACK = 1;
+  public static final int PORT_DRIVE_LEFT_BACK = 0;
+  public static final int PORT_DRIVE_RIGHT_BACK = 9;
   public static final int PORT_DRIVE_LEFT_FRONT = 1;
-  public static final int PORT_DRIVE_RIGHT_FRONT = 1;
+  public static final int PORT_DRIVE_RIGHT_FRONT = 8;
 
-  public static final int PORT_INTAKE = 1;
+  public static final int PORT_INTAKE = 3;
 
-  public static final int PORT_LIFT_FRONT = 1;
-  public static final int PORT_LIFT_BACK = 1;
+  public static final int PORT_LIFT_FRONT = 2;
+  public static final int PORT_LIFT_BACK = 7;
 
   //Pneumatic ports
-  public static final int PORT_INTAKE_EXTEND = 1;
-  public static final int PORT_INTAKE_RETRACT = 1;
+  public static final int PORT_INTAKE_EXTEND = 7;
+  public static final int PORT_INTAKE_RETRACT = 6;
   
-  public static final int PORT_HATCH_EXTEND = 1;
-  public static final int PORT_HATCH_RETRACT = 1;
+  public static final int PORT_HATCH_EXTEND = 5;
+  public static final int PORT_HATCH_RETRACT = 4;
 
   public static final int PORT_CLIMB_BACK_EXTEND = 1;
   public static final int PORT_CLIMB_BACK_RETRACT = 1;
