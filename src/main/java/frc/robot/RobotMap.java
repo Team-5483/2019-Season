@@ -20,11 +20,11 @@ public class RobotMap {
   public static final int PORT_LIFT_BACK = 7;
 
   //Pneumatic ports
-  public static final int PORT_INTAKE_EXTEND = 7;
-  public static final int PORT_INTAKE_RETRACT = 6;
+  public static final int PORT_INTAKE_EXTEND = 0;
+  public static final int PORT_INTAKE_RETRACT = 1;
   
-  public static final int PORT_HATCH_EXTEND = 5;
-  public static final int PORT_HATCH_RETRACT = 4;
+  public static final int PORT_HATCH_EXTEND = 4;
+  public static final int PORT_HATCH_RETRACT = 5;
 
   public static final int PORT_CLIMB_BACK_EXTEND = 1;
   public static final int PORT_CLIMB_BACK_RETRACT = 1;
@@ -34,4 +34,12 @@ public class RobotMap {
 
   public static final int PORT_COMPRESSOR = 0;
 
+  //Encoder ports
+  //Each encoder uses assigned port and the port above it
+  public static final int PORT_ENCODER_DRIVE_LEFT = 0;
+  public static final int PORT_ENCODER_DRIVE_RIGHT = 2;
+  public static final int PORT_ENCODER_DRIVE_LIFT = 4;
+
+  //Limit switches
+  public static final int PORT_LIFT_SWITCH = 1;
 }

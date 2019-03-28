@@ -9,12 +9,16 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
+
 public class BallIntakeCommand extends Command {
   private double a;
   
   public BallIntakeCommand(double a) {
     requires(Robot.intake);
     this.a = a;
+    if (a<-1) {
+      a = -1;
+    }
   }
 
   protected void execute() {

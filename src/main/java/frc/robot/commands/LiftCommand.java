@@ -8,8 +8,10 @@
 package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import frc.robot.Robot;
 import edu.wpi.first.wpilibj.GenericHID.Hand;
+
 public class LiftCommand extends Command {
   public LiftCommand() {
     requires(Robot.lift);
@@ -19,7 +21,10 @@ public class LiftCommand extends Command {
   }
   
   protected void execute() {
-    Robot.lift.lift(Robot.m_oi.xbox.getTriggerAxis(Hand.kRight) - Robot.m_oi.xbox.getTriggerAxis(Hand.kLeft));
+    
+    Robot.lift.lift((Robot.m_oi.xbox.getTriggerAxis(Hand.kRight) - Robot.m_oi.xbox.getTriggerAxis(Hand.kLeft))*2);
+    //System.out.println(((Robot.m_oi.xbox.getTriggerAxis(Hand.kRight) - Robot.m_oi.xbox.getTriggerAxis(Hand.kLeft))*2));
+    
   }
 
   protected boolean isFinished() {
